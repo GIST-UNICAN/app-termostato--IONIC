@@ -18,7 +18,8 @@ export class HomePage implements OnInit{
   fecha: string = new Date().toISOString()
   format = 'yyyy-MM-dd';
   locale = 'en-US';
-  objeto_temperatura: ObjetoTemperatura[];
+  objeto_temperatura: ObjetoTemperatura;
+  onjeto_extra: ObjetoFuncionamiento;
   horas: Array<string> = [];
   temperaturas: Array<Number> = [];
   deseadas: Array<Number> = [];
