@@ -1,4 +1,4 @@
-import { ObjetoTemperatura } from './../interfaces/interfaces';
+import { ObjetoTemperatura, ObjetoFuncionamiento } from './../interfaces/interfaces';
 import { RestserviceService } from './../services/restservice.service';
 import { Component, OnInit, ElementRef,ViewChild  } from '@angular/core';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
@@ -18,7 +18,8 @@ export class HomePage implements OnInit{
   fecha: string = new Date().toISOString()
   format = 'yyyy-MM-dd';
   locale = 'en-US';
-  objeto_temperatura: ObjetoTemperatura[];
+  objeto_temperatura: ObjetoTemperatura;
+  onjeto_extra: ObjetoFuncionamiento;
   horas: Array<string> = [];
   temperaturas: Array<Number> = [];
   deseadas: Array<Number> = [];

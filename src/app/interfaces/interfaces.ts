@@ -9,3 +9,8 @@ export interface ObjetoTemperatura {
     externa: number;
 }
 
+export interface ObjetoFuncionamiento {
+    encendido: number;
+    apagado: number;
+}
+
