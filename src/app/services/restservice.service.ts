@@ -1,3 +1,4 @@
+import { ObjetoFuncionamiento } from './../interfaces/interfaces';
 import { Injectable } from '@angular/core';
 import {  HttpClient, HttpHeaders } from '@angular/common/http';
 import { ObjetoTemperatura } from '../interfaces/interfaces';
@@ -11,19 +12,21 @@ const headers = new HttpHeaders({
   providedIn: 'root'
 })
 export class RestserviceService {
-  url: string ='http://rampillas.synology.me:3000/termostato?dia='
+  url: string ='https://www.enzapatillasoenzapatos.es:3000/'
   constructor(private http: HttpClient) { }
 
-  private ejecutarQuery<T>(query: string){
+  private ejecutarQuery<T>(query: string, servicio: string){
 
-    const query2 = this.url + query;
+    const query2 = this.url +servicio+'?dia='+ query;
     console.log('peticion: ', query2)
     return this.http.get<any>(query2)
   }
   getData(dia:string ){
-    return this.ejecutarQuery<ObjetoTemperatura>(dia)
+    return this.ejecutarQuery<ObjetoTemperatura>(dia,'termostato')
   }
-
+  getextraData(dia:string ){
+    return this.ejecutarQuery<ObjetoFuncionamiento>(dia,'termostatodata')
+  }
 }
 
 
