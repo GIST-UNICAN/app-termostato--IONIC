@@ -18,7 +18,7 @@ export class HomePage implements OnInit{
   fecha: string = new Date().toISOString()
   format = 'yyyy-MM-dd';
   locale = 'en-US';
-  objeto_temperatura: ObjetoTemperatura;
+  objeto_temperatura: any[];
   onjeto_extra: ObjetoFuncionamiento;
   horas: Array<string> = [];
   temperaturas: Array<Number> = [];
@@ -55,7 +55,7 @@ onClick(){
   }
 
   )
-  this.datos.getData(formatDate(this.fecha,this.format,this.locale)).subscribe(resp=>{
+  this.datos.getData(formatDate(this.fecha,this.format,this.locale)).subscribe((resp: any[])=>{
     this.objeto_temperatura=resp;
     console.log(this.objeto_temperatura)
     this.actual=this.objeto_temperatura[this.objeto_temperatura.length - 1].temperatura;
